@@ -8,6 +8,7 @@ export type HistoryItem = {
 
 export function useTerminal() {
   const [input, setInput] = useState('');
+  const [suggestion, setSuggestion] = useState('');
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
@@ -32,12 +33,29 @@ export function useTerminal() {
     inputRef.current?.focus();
   }, []);
 
+  const computeSuggestion = (value: string) => {
+    if (!value.trim()) {
+      setSuggestion('');
+      return;
+    }
+    const matches = Object.keys(commands).filter(cmd =>
+      cmd.startsWith(value.toLowerCase())
+    );
+    setSuggestion(matches.length === 1 ? matches[0].slice(value.length) : '');
+  };
+
+  const handleInputChange = (value: string) => {
+    setInput(value);
+    computeSuggestion(value);
+  };
+
   const handleCommand = (cmd: string) => {
     const trimmedCmd = cmd.trim().toLowerCase();
 
     setHistory(prev => [...prev, { type: 'input', content: cmd }]);
     setCommandHistory(prev => [...prev, cmd]);
     setHistoryIndex(-1);
+    setSuggestion('');
 
     if (trimmedCmd === '') return;
 
@@ -63,6 +81,21 @@ export function useTerminal() {
         handleCommand(input);
         setInput('');
       }
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const matches = Object.keys(commands).filter(cmd =>
+        cmd.startsWith(input.toLowerCase())
+      );
+      if (matches.length === 1) {
+        setInput(matches[0]);
+        setSuggestion('');
+      } else if (matches.length > 1) {
+        setHistory(prev => [
+          ...prev,
+          { type: 'input', content: input },
+          { type: 'output', content: matches.join('    ') },
+        ]);
+      }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (commandHistory.length > 0) {
@@ -70,6 +103,7 @@ export function useTerminal() {
           historyIndex === -1 ? commandHistory.length - 1 : Math.max(0, historyIndex - 1);
         setHistoryIndex(newIndex);
         setInput(commandHistory[newIndex]);
+        setSuggestion('');
       }
     } else if (e.key === 'ArrowDown') {
       e.preventDefault();
@@ -78,9 +112,11 @@ export function useTerminal() {
         if (newIndex >= commandHistory.length) {
           setHistoryIndex(-1);
           setInput('');
+          setSuggestion('');
         } else {
           setHistoryIndex(newIndex);
           setInput(commandHistory[newIndex]);
+          setSuggestion('');
         }
       }
     }
@@ -88,7 +124,8 @@ export function useTerminal() {
 
   return {
     input,
-    setInput,
+    suggestion,
+    setInput: handleInputChange,
     history,
     terminalRef,
     inputRef,

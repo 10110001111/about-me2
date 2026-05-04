@@ -2,7 +2,7 @@ import { useTerminal } from './useTerminal';
 import './App.css';
 
 function App() {
-  const { input, setInput, history, terminalRef, inputRef, handleKeyDown } = useTerminal();
+  const { input, suggestion, setInput, history, terminalRef, inputRef, handleKeyDown } = useTerminal();
 
   return (
     <div className="terminal-container">
@@ -34,6 +34,7 @@ function App() {
               <span className="terminal-prompt">root@wasi:~$</span>
               <span className="terminal-input-mirror">{input}</span>
               <span className="terminal-cursor">▊</span>
+              {suggestion && <span className="terminal-suggestion">{suggestion}</span>}
             </div>
           </div>
 
@@ -55,10 +56,10 @@ function App() {
         <div className="terminal-footer">
           <p>Wasi</p>
           <p className="terminal-hint terminal-hint-desktop">
-            Press ↑/↓ to navigate command history | Press Enter to execute
+            Press Tab to autocomplete | ↑/↓ to navigate history | Enter to execute
           </p>
           <p className="terminal-hint terminal-hint-mobile">
-            Tap the terminal to type | Enter to execute
+            Tap the terminal to type | Tab to autocomplete | Enter to execute
           </p>
         </div>
       </div>

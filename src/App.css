@@ -108,6 +108,13 @@ body {
   margin-left: 2px;
 }
 
+.terminal-suggestion {
+  color: #005500;
+  white-space: pre;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+}
+
 @keyframes blink {
   0%, 49% {
     opacity: 1;
