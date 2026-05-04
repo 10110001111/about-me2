@@ -11,7 +11,7 @@ export const ASCII_ART = `
 ║     ╚███╔███╔╝██║  ██║███████║██║                                         ║
 ║      ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚═╝                                         ║
 ║                                                                           ║
-║    > CLOUD COMPUTING SPECIALIST                                           ║
+║    > CLOUD ARCHITECT                                                      ║
 ║    > SYSTEM STATUS: OPERATIONAL                                           ║
 ║    > ACCESS LEVEL: PUBLIC                                                 ║
 ║                                                                           ║
@@ -33,16 +33,16 @@ Available commands:
   exit            - Close terminal session
 `,
   about: () => `
-CLOUD COMPUTING SPECIALIST
+CLOUD ARCHITECT
 
 Current Focus:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Multi-cloud architect and security specialist with hands-on experience
-across AWS, GCP, Azure, Oracle Cloud, and Alibaba Cloud. Designing
-secure, scalable cloud infrastructure with a focus on automation,
-identity management, and cloud-native security.
+Designing and delivering enterprise-grade cloud architectures across
+AWS, GCP, Azure, Oracle Cloud, and Alibaba Cloud. Focused on building
+resilient, scalable, and secure infrastructure through automation,
+well-architected frameworks, and cloud-native design patterns.
 
-Mission: Architect and secure cloud environments at enterprise scale
+Mission: Architect multi-cloud solutions that scale, perform, and endure
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `,
   whoami: () => `
@@ -50,7 +50,7 @@ root@wasi:~$ id
 uid=0(wasi) gid=0(cloud) groups=0(cloud),1(security),2(devops)
 
 Current User: Wasi
-Role: Cloud Computing Specialist
+Role: Cloud Architect
 Cert: AWS Certified Security - Specialty
 Status: ACTIVE
 Location: Cloud Operations
@@ -77,7 +77,7 @@ Verify: https://aws.amazon.com/verification
 `,
   skills: () => `
 ╔═══════════════════════════════════════════════════════════════╗
-║                    MULTI-CLOUD SKILL MATRIX                   ║
+║               CLOUD ARCHITECT SKILL MATRIX                    ║
 ╚═══════════════════════════════════════════════════════════════╝
 
 [☁️  AMAZON WEB SERVICES (AWS)]
@@ -125,7 +125,7 @@ Verify: https://aws.amazon.com/verification
 └── PowerShell            ██████████████████░░ 85%
 `,
   domains: () => `
-CLOUD OPERATIONAL DOMAINS
+CLOUD ARCHITECT DOMAINS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 [🔒 CLOUD SECURITY]
@@ -171,7 +171,7 @@ CLOUD OPERATIONAL DOMAINS
   ✓ Cloud cost optimization and tagging governance
 `,
   arsenal: () => `
-class CloudSpecialist:
+class CloudArchitect:
     def __init__(self):
         self.aws = {
             'security':  ['GuardDuty', 'Security Hub', 'Macie', 'Inspector', 'Detective'],
@@ -217,10 +217,10 @@ class CloudSpecialist:
         self.cert       = 'AWS Certified Security - Specialty ★'
 
     def deploy(self):
-        return "🟢 Multi-cloud infrastructure secured"
+        return "🟢 Multi-cloud architecture deployed"
 
->>> CloudSpecialist().deploy()
-'🟢 Multi-cloud infrastructure secured'
+>>> CloudArchitect().deploy()
+'🟢 Multi-cloud architecture deployed'
 `,
   collaborate: () => `
 COLLABORATION PROTOCOLS
